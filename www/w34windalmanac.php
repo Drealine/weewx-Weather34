@@ -1,6 +1,6 @@
 <?php
 //original weather34 script original css/svg/php by weather34 2015-2019 clearly marked as original by weather34//
-include('w34CombinedData.php');
+include('w34CombinedData.php');include_once('common.php');
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -411,11 +411,11 @@ metricsblue {
 	top: 0
 }
 </style>
-<div class="weather34darkbrowser" url="Windspeed Almanac"></div>
+<div class="weather34darkbrowser" url="<?php echo $lang['WindSpeedAlmanac'];?>"></div>
 
 <main class="grid">
   <article>
-   <div class=actualt>Max Today </div>
+   <div class=actualt><?php echo $lang['WindSpeedMaxToday'];?></div>
    <?php
 	if ($weather["wind_units"]=='kts'){$weather["wind_units"]="kn";}
 	// wind day km/h
@@ -480,12 +480,12 @@ if($weather["wind_units"] =='kn'){ echo number_format($weather["winddmax"]*1.851
 </div>
 
 <div class="hitempy">
-Max Recorded <blue><?php echo $weather["winddmaxtime"];?></blue></div>
+<?php echo $lang['WindSpeedMaxRecorded'];?> <blue><?php echo $weather["winddmaxtime"];?></blue></div>
 </smalluvunit>
 </article>
 
  <article>
-   <div class=actualt>Max Yesterday </div>
+   <div class=actualt><?php echo $lang['WindSpeedMaxYesterday'];?></div>
    <?php
 	// wind yesterday km/h
 	if ($weather["wind_units"]=='km/h' && $weather["windydmax"]>=60)  {
@@ -548,7 +548,7 @@ if($weather["wind_units"] =='kn'){ echo number_format($weather["windydmax"]*1.85
 </div>
 
 <div class="hitempy">
-Max Recorded <br><blue><?php echo $weather["windydmaxtime"];?></blue></div>
+<?php echo $lang['WindSpeedMaxRecorded'];?> <br><blue><?php echo $weather["windydmaxtime"];?></blue></div>
 
 </article>
 
@@ -618,7 +618,7 @@ if($weather["wind_units"] =='kn'){ echo number_format($weather["windmmax"]*1.851
 </div>
 
 <div class="hitempy">
-Max Recorded <br><blue><?php echo $weather["windmmaxtime"];?></blue></div>
+<?php echo $lang['WindSpeedMaxRecorded'];?> <br><blue><?php echo $weather["windmmaxtime"];?></blue></div>
 
 </article>
 
@@ -687,14 +687,14 @@ if($weather["wind_units"] =='kn'){ echo number_format($weather["windymax"]*1.851
 </div>
 
 <div class="hitempy">
-Max Recorded <br><blue><?php echo $weather["windymaxtime"];?></blue></div>
+<?php echo $lang['WindSpeedMaxRecorded'];?> <br><blue><?php echo $weather["windymaxtime"];?></blue></div>
 
 </article>
 
 
 
  <article>
-   <div class=actualt>Max All-Time</div>
+   <div class=actualt><?php echo $lang['WindSpeedMaxAllTime'];?></div>
    <?php
 	// wind year km/h
 	if ($weather["wind_units"]=='km/h' && $weather["windymax"]>=60)  {
@@ -757,7 +757,7 @@ if($weather["wind_units"] =='kn'){ echo number_format($weather["windamax"]*1.851
 </div>
 
 <div class="hitempy">
-Max Recorded <br><blue><?php echo $weather["windamaxtime"];?></blue></div>
+<?php echo $lang['WindSpeedMaxRecorded'];?> <br><blue><?php echo $weather["windamaxtime"];?></blue></div>
 
 </article>  
 
@@ -767,7 +767,7 @@ Max Recorded <br><blue><?php echo $weather["windamaxtime"];?></blue></div>
  <main class="grid1">
     
   <articlegraph> 
-  <div class=actualt><?php echo date('Y');?> Wind (<?php echo $weather["wind_units"]?>)</div>  
+  <div class=actualt><?php echo date('Y');?> <?php echo $lang['Wind'];?> (<?php echo $weather["wind_units"]?>)</div>  
   <iframe  src="w34highcharts/dark-charts.html?chart='windsmallplot'&span='yearly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" frameborder="0" scrolling="no" width="100%" height="210px"></iframe>
    
   </articlegraph> 

@@ -1,4 +1,4 @@
-<?php include('w34CombinedData.php');date_default_timezone_set($TZ);?>
+<?php include('w34CombinedData.php');include_once('common.php');date_default_timezone_set($TZ);?>
 <div class="updatedtime"><span><?php if(file_exists($livedata)&&time()- filemtime($livedata)>300)echo $offline. '<offline> Offline </offline>';else echo $online." ".$weather["time"];?></div>  
 <?php //weather34 timeago lightning
 $lightningseconds = $weather["lightningtimeago"];
@@ -16,22 +16,22 @@ if($minutes > 0){$weather34timeago .= "$minutes min ";}}
 return $weather34timeago;}?>
 <body>
 <div class="simsekcontainer">
-<div class="simsekdata">Strikes</div>
+<div class="simsekdata"><?php echo $lang['Strikes'];?></div>
 <?php //weather34 sez lets make the temperature look nice 
 if($weather["lightningmax"]>0){echo '<div class=simsek>'.number_format($weather["lightningmax"],0,',','');}
 else if($weather["lightningmax"]==0){echo '<div class=simsek>'.number_format($weather["lightning2max"],0,',','');}?>
 </smalltempunit></div>
-<div class="simsektoday"><valuetext>Today</valuetext></div></div></div>
+<div class="simsektoday"><valuetext><?php echo $lang['TodayLightning'];?></valuetext></div></div></div>
 
 <div class="lightninginfo">
-Strikes Recorded
+<?php echo $lang['StrikesRecorded'];?>
 <?php //weatherflow air lightning month current
 echo "<lightningannualx>".date('F Y').":<lorange> " .str_replace(",","",$weather["lightningmonth"])." </lorange></lightningannual>";?>
 <?php  //weatherflow air lightning year current
 echo "<lightningannualx1> Total ".date('Y').":<lorange> " .str_replace(",","",$weather["lightningyear"])." </lorange>";?>
 <?php  //weatherflow air lightning output
-if ($lightningseconds <61 ){ echo "<timeago>Last Strike Detected<br> <agolightning>Now ";}
-else if ($lightningseconds >=61 ) echo "<timeago>Last Strike Detected<br> <agolightning>", convert($lightningseconds)," ago";?>
+if ($lightningseconds <61 ){ echo "<timeago>"; echo $lang['StrikesRecorded']; echo"<br> <agolightning>"; echo $lang['NowLightning'];}
+else if ($lightningseconds >=61 ) echo "<timeago>", $lang['LastStrikeDetected'], "<br> <agolightning>", convert($lightningseconds),$lang['AgoLightning'];?>
 </div>
 <div class="rainconverter">
 <?php

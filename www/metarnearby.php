@@ -105,17 +105,17 @@ stationid{font-size:1.4em;font-family:weathertext2;color:#009bb4}
 .icontext{position:absolute;float:left;margin-top:40px;text-align:left;}
 .pressure{position:absolute;float:left;margin-top:30px;text-align:left;}
 </style>
-<div class="weather34darkbrowser" url="Nearby Airport Conditions"></div>
+<div class="weather34darkbrowser" url="<?php echo $lang['NearbyAirportConditions'];?>"></div>
   
 <main class="grid">
 
  <article>
-  <div class=actualt>&nbsp;&nbsp Current Conditions </div>
+  <div class=actualt>&nbsp;&nbsp <?php echo $lang['CurrentConditions_Metar'];?> </div>
   <div class="iconcondition"><?php echo "<img rel='prefetch' src='css/icons/".$sky_icon."' width='60px'>";?></div>
   <div class="icontext"><?php  echo $sky_desc; ?> </div>
 <br><br><br>
 <div class="pressure">
-<blue>Pressure</blue> <br>
+<blue><?php echo $lang['Pressure_Metar'];?></blue> <br>
 <?php
 if ($pressureunit == 'mb' || $pressureunit == 'hPa') {
 	echo $metar34pressuremb ," (".$pressureunit.")";
@@ -130,7 +130,7 @@ if ($pressureunit == 'mb' || $pressureunit == 'hPa') {
 	echo $metar34pressuremb ," (mb)";
 }
 ?>
-<blue><br>Visibility</blue> <br>
+<blue><br><?php echo $lang['Visibility_Metar'];?></blue> <br>
 <?php
 if ($distanceunit == 'mi') {
 	echo $metar34vismiles  ," (mimiles)";
@@ -153,7 +153,7 @@ if ($distanceunit =='mi') {
 
 
   <article>       
-<div class=actualt>&nbsp;&nbsp Temperature </div>   
+<div class=actualt>&nbsp;&nbsp <?php echo $lang['Temperature_Metar'];?> </div>   
 
  <div class="metartempcontainer1"><?php
  if ($tempunit == 'C') {
@@ -204,7 +204,7 @@ if ($tempunit == 'C') {
 	else if ($metar34dewpointf=='') {echo '<div class=metartemptoday0>'.$metar34dewpointf."<smalluvunit> N/A";}
 }
 ?></smalluvunit></div></div> 
- <div class="dewword">Dewpoint</div>
+ <div class="dewword"><?php echo $lang['DewPoint_Metar'];?></div>
 
  <div class="metarhumcontainer1"><?php 
 if ($metar34humidity >85) {echo '<div class=metarhumtoday85-100>'.$metar34humidity ."<smalluvunit> &nbsp;%";}
@@ -213,14 +213,14 @@ else if ($metar34humidity  >35) {echo '<div class=metarhumtoday35-70>'.$metar34h
 else if ($metar34humidity >=0) {echo '<div class=metarhumtoday0-35>'.$metar34humidity ."<smalluvunit> &nbsp;%";}
 else if ($metar34humidity=='') {echo '<div class=metarhumtoday0-35><smalluvunit> N/A';}
 ?></smalluvunit></div></div> 
-<div class="humword">&nbsp;Humidity</div>
+<div class="humword">&nbsp;<?php echo $lang['Humidity_Metar'];?></div>
 </div>
   
 </article>  
   
    
   <article>
-  <div class=actualw>&nbsp;&nbsp Wind Speed</div>   
+  <div class=actualw>&nbsp;&nbsp <?php echo $lang['WindSpeed_Metar'];?></div>   
    <?php
 //set windspeed variables
 if ($windunit == 'km/h') {
@@ -299,32 +299,32 @@ echo $$metarspot4;
 
 
 <article>
-<div class=actualw>&nbsp;&nbsp Wind Direction</div> 
+<div class=actualw>&nbsp;&nbsp <?php echo $lang['WindDirection_Metar'];?></div> 
 </div>
 </div> 
 <div class="metar34compass1">
 <div class=directiontext>
 <?php 
-if( $metar34windir==0){echo "Calm";}else echo "&nbsp". $metar34windir,"&deg;";?>
+if( $metar34windir==0){echo $lang['Calm'];}else echo "&nbsp". $metar34windir,"&deg;";?>
 <br>
 <?php 
-if($metar34windir<=11.25){echo "Due North";}
-else if($metar34windir<=33.75){echo "North North <br>East";}
-else if($metar34windir<=56.25){echo "North East";}
-else if($metar34windir<=78.75){echo "East North<br>East";}
-else if($metar34windir<=101.25){echo "Due East";}
-else if($metar34windir<=123.75){echo "East South<br>East";}
-else if($metar34windir<=146.25){echo "South East";}
-else if($metar34windir<=168.75){echo "South South<br>East";}
-else if($metar34windir<=191.25){echo "Due South";}
-else if($metar34windir<=213.75){echo "South South<br>West";}
-else if($metar34windir<=236.25){echo "South West";}
-else if($metar34windir<=258.75){echo "West South<br>West";}
-else if($metar34windir<=281.25){echo "Due West";}
-else if($metar34windir<=303.75){echo "West North<br>West";}
-else if($metar34windir<=326.25){echo "North West";}
-else if($metar34windir<=348.75){echo "North North<br>West";}
-else{echo "Due North";}?></div>
+if($metar34windir<=11.25){echo $lang['Northdir_Metar'];}
+else if($metar34windir<=33.75){echo $lang['NNEdir_Metar'];}
+else if($metar34windir<=56.25){echo $lang['NEdir_Metar'];}
+else if($metar34windir<=78.75){echo $lang['ENEdir_Metar'];}
+else if($metar34windir<=101.25){echo $lang['Eastdir_Metar'];}
+else if($metar34windir<=123.75){echo $lang['ESEdir_Metar'];}
+else if($metar34windir<=146.25){echo $lang['SEdir_Metar'];}
+else if($metar34windir<=168.75){echo $lang['SSEdir_Metar'];}
+else if($metar34windir<=191.25){echo $lang['Southdir_Metar'];}
+else if($metar34windir<=213.75){echo $lang['SSWdir_Metar'];}
+else if($metar34windir<=236.25){echo $lang['SWdir_Metar'];}
+else if($metar34windir<=258.75){echo $lang['WSWdir_Metar'] ;}
+else if($metar34windir<=281.25){echo $lang['Westdir_Metar'];}
+else if($metar34windir<=303.75){echo $lang['WNWdir_Metar'];}
+else if($metar34windir<=326.25){echo $lang['NWdir_Metar'];}
+else if($metar34windir<=348.75){echo $lang['NWNdir_Metar'];}
+else{echo $lang['Northdir_Metar'];}?></div>
 
 <div class="metar34compass-line1">
 <div class="thearrow2">
@@ -342,7 +342,7 @@ else{echo "Due North";}?></div>
   <stationid><?php echo $metar34stationid ; ?></stationid><br>
   <div class="lotemp">
    <?php
-echo "Location <yellow>",$metar34stationname  ;
+echo $lang['Location_Metar']," <yellow>",$metar34stationname  ;
 echo '</yellow> <green>'.$airport1dist.'</green> '.$distanceunit.' (<green>';
 if ($distanceunit == 'mi') {
 	echo round($airport1dist * 1.609,2,PHP_ROUND_HALF_UP);
@@ -365,15 +365,15 @@ $date=str_replace('Z', ' ', $date);$date1 = strtotime($date) + 60*60*$UTC;echo d
   </article> 
   
   <article>
-  <div class=actualt>&nbsp;&nbsp Raw Metar Info</div>  
+  <div class=actualt>&nbsp;&nbsp <?php echo $lang['RawMetarInfo'];?> Info</div>  
   <div class="lotemp">
-  <?php echo $info?> Raw METAR is the most common format in the world for the transmission of observational weather data. It is highly standardized through the International Civil Aviation Organization (ICAO), which allows it to be understood throughout most of the world.</span></div>
+  <?php echo $info?> <?php echo $lang['KnowledgeMetar'];?></span></div>
   </article> 
   
   <article>
-  <div class=actualt>&nbsp;&nbsp API  Info</div>  
+  <div class=actualt>&nbsp;&nbsp <?php echo $lang['APIInfoMetar'];?></div>  
   <div class="lotemp">
-  <?php echo $info?> Data Provided by </span><a href="https://www.checkwx.com/weather/<?php echo $icao1;?>" title="https://www.checkwx.com/weather/<?php echo $icao1;?>" target="_blank" ><br><img src=img/checkwx.svg width=130px alt="https://www.checkwx.com/weather/<?php echo $icao1;?>"></a></span></div>
+  <?php echo $info?> <?php echo $lang['DataProvidedByMetar'];?> </span><a href="https://www.checkwx.com/weather/<?php echo $icao1;?>" title="https://www.checkwx.com/weather/<?php echo $icao1;?>" target="_blank" ><br><img src=img/checkwx.svg width=130px alt="https://www.checkwx.com/weather/<?php echo $icao1;?>"></a></span></div>
   </article> 
   
   

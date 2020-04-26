@@ -1,6 +1,6 @@
 <?php
 //original weather34 script original css/svg/php by weather34 2015-2019 clearly marked as original by weather34//
-include('w34CombinedData.php');
+include('w34CombinedData.php');include_once('common.php');
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,11 +72,11 @@ align-items:center;justify-content:center;margin-bottom:10px;top:0;text-align:ce
 
 
 </style>
-<div class="weather34darkbrowser" url="Barometer Almanac"></div>
+<div class="weather34darkbrowser" url="<?php echo $lang['BarometerAlmanac'];?>"></div>
 
 <main class="grid">
   <article>
-   <div class=actualt>&nbsp;Barometer Today </div>
+   <div class=actualt>&nbsp;<?php echo $lang['BarometerMaxToday'];?> </div>
    <div class="temperaturecontainer1">
 
 			  <?php
@@ -100,7 +100,7 @@ align-items:center;justify-content:center;margin-bottom:10px;top:0;text-align:ce
 </article>
 
  <article>
-   <div class=actualt>&nbsp;Barometer Yesterday </div>
+   <div class=actualt>&nbsp;<?php echo $lang['BarometerMaxYesterday'];?> </div>
    <div class="temperaturecontainer1">
 
 			  <?php
@@ -129,7 +129,7 @@ align-items:center;justify-content:center;margin-bottom:10px;top:0;text-align:ce
 
 
   <article>
-  <div class=actualt>&nbsp;Barometer <?php echo date('F Y')?> </div>
+  <div class=actualt>&nbsp;<?php echo $lang['BarometerAlmanac2'];?> <?php echo date('F Y')?> </div>
    <div class="temperaturecontainer1">
   <?php
 	////pressure max month
@@ -153,7 +153,7 @@ align-items:center;justify-content:center;margin-bottom:10px;top:0;text-align:ce
 
 
    <article>
-   <div class=actualt>&nbsp;Barometer <?php echo date('Y')?> </div>
+   <div class=actualt>&nbsp;<?php echo $lang['BarometerAlmanac2'];?> <?php echo date('Y')?> </div>
    <div class="temperaturecontainer1">
 
 			  <?php
@@ -181,7 +181,7 @@ align-items:center;justify-content:center;margin-bottom:10px;top:0;text-align:ce
 
 
 <article>
-   <div class=actualt>&nbsp;Barometer All-Time </div>
+   <div class=actualt>&nbsp;<?php echo $lang['BarometerMaxAllTime'];?> </div>
    <div class="temperaturecontainer1">
 
 			  <?php
@@ -209,7 +209,7 @@ align-items:center;justify-content:center;margin-bottom:10px;top:0;text-align:ce
   </main>
   <main class="grid1">
   <articlegraph> 
-  <div class=actualt><?php echo date('Y')?> Barometer Chart</div>  
+  <div class=actualt><?php echo date('Y')?><?php echo " "; echo $lang['BarometerAlmanac2']; echo " ";?>(<?php echo $weather["barometer_units"]?>)</div>  
   <iframe  src="w34highcharts/dark-charts.html?chart='barsmallplot'&span='yearly'&temp='<?php echo $weather['temp_units'];?>'&pressure='<?php echo $weather['barometer_units'];?>'&wind='<?php echo $weather['wind_units'];?>'&rain='<?php echo $weather['rain_units']?>" frameborder="0" scrolling="no" width="100%" height="205px"></iframe>
    
   </articlegraph> 

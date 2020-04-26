@@ -1,5 +1,5 @@
  <?php //original weather34 script original css/svg/php by weather34 2015-2019 // 
-include('w34CombinedData.php');date_default_timezone_set($TZ);$json_string = file_get_contents("jsondata/darksky.txt");
+include('w34CombinedData.php');include_once('common.php');date_default_timezone_set($TZ);$json_string = file_get_contents("jsondata/darksky.txt");
 $parsed_json = json_decode($json_string);
 $alerttype = $parsed_json->{'alerts'}[0]->{"title"};
 $type = explode(" ", $alerttype);
@@ -55,111 +55,111 @@ $parsed_weather34wujson = json_decode($weather34wuurl,false);
 <?php
 ///METEOALARM
 if (strpos($alertlevel,'Yellow') !== false)
-  {echo '<spanelightning><alertvalue><a href="meteoalarm.php" title="Meteoalarm" alt="Meteoalarm" data-lity><yellow>Yellow Alert '.$alerttype.'<br>Until '.$alertexp.'</yellow><alertadvisory>'.$newalertcold.'</alertadvisory>
+  {echo '<spanelightning><alertvalue><a href="meteoalarm.php" title="Meteoalarm" alt="Meteoalarm" data-lity><yellow>'.$lang['YellowAlert'].''.$alerttype.'<br>Until '.$alertexp.'</yellow><alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
 else if (strpos($alertlevel,'Orange') !== false)
-  {echo '<spanelightning><alertvalue><a href="meteoalarm.php" title="Meteoalarm" alt="Meteoalarm" data-lity><orange>Amber Alert '.$alerttype.'<br>Expires '.$alertexp.'</orange><alertadvisory>'.$newalert.'</alertadvisory>
+  {echo '<spanelightning><alertvalue><a href="meteoalarm.php" title="Meteoalarm" alt="Meteoalarm" data-lity><orange>'.$lang['AmberAlert'].' '.$alerttype.'<br>Expires '.$alertexp.'</orange><alertadvisory>'.$newalert.'</alertadvisory>
   </spanelightning></div></div></div>';}
 else if (strpos($alertlevel,'Red') !== false)
-  {echo '<spanelightning><alertvalue><a href="meteoalarm.php" title="Meteoalarm" alt="Meteoalarm" data-lity><red>Red Alert '.$alerttype.'<br>Expires '.$alertexp.'</red><alertadvisory>'.$newalert.'</alertadvisory>
+  {echo '<spanelightning><alertvalue><a href="meteoalarm.php" title="Meteoalarm" alt="Meteoalarm" data-lity><red>'.$lang['RedAlert'].' '.$alerttype.'<br>Expires '.$alertexp.'</red><alertadvisory>'.$newalert.'</alertadvisory>
   </spanelightning></div></div></div>';}  
     //weather34 //forecast3wularge wu alerts storms 
-else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+else if ($wuskythunder1>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange>'.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder2>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder2>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder3>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder3>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder4>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder4>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder5>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder5>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder6>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder6>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder7>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder7>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
   //forecast3 wu 
-    else if ($wuskythunder1>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder1>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder2>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder2>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder3>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder3>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder4>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder4>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder5>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder5>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder6>0 && $position6=="forecast3wu.php" ){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder6>0 && $position6=="forecast3wu.php" ){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskythunder7>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>Expect<orange> Thunder Storms</orange> This Week <alertadvisory>'.$newalert.'</alertadvisory>
+    else if ($wuskythunder7>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue>'.$lang['ExpectAdvisory'].'<orange> '.$lang['ThunderStorms'].'</orange> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalert.'</alertadvisory>
    </spanelightning></div></div></div>';}  
    
     //WU SNOW
-  else if ($wuskysnow1>0 && $position6=="forecast3wularge.php")  {echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+  else if ($wuskysnow1>0 && $position6=="forecast3wularge.php")  {echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}    
-  else if ($wuskysnow2>0 && $position6=="forecast3wularge.php")  {echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+  else if ($wuskysnow2>0 && $position6=="forecast3wularge.php")  {echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';} 
-   else if ($wuskysnow3>0 && $position6=="forecast3wularge.php"){echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+   else if ($wuskysnow3>0 && $position6=="forecast3wularge.php"){echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';} 
-   else if ($wuskysnow4>0 && $position6=="forecast3wularge.php"){echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+   else if ($wuskysnow4>0 && $position6=="forecast3wularge.php"){echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-   else if ($wuskysnow5>0 && $position6=="forecast3wularge.php"){echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+   else if ($wuskysnow5>0 && $position6=="forecast3wularge.php"){echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}   
-   else if ($wuskysnow6>0 && $position6=="forecast3wularge.php"){echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+   else if ($wuskysnow6>0 && $position6=="forecast3wularge.php"){echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-   else if ($wuskysnow7>0 && $position6=="forecast3wularge.php"){echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+   else if ($wuskysnow7>0 && $position6=="forecast3wularge.php"){echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}      
    
   //forecast3 wu snow
-  else if ($wuskysnow1>0 && $position6=="forecast3wu.php" )  {echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+  else if ($wuskysnow1>0 && $position6=="forecast3wu.php" )  {echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}    
-  else if ($wuskysnow2>0 && $position6=="forecast3wu.php" )  {echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+  else if ($wuskysnow2>0 && $position6=="forecast3wu.php" )  {echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';} 
-   else if ($wuskysnow3>0 && $position6=="forecast3wu.php" ){echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+   else if ($wuskysnow3>0 && $position6=="forecast3wu.php" ){echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';} 
-   else if ($wuskysnow4>0 && $position6=="forecast3wu.php" ){echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+   else if ($wuskysnow4>0 && $position6=="forecast3wu.php" ){echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-   else if ($wuskysnow5>0 && $position6=="forecast3wu.php" ){echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+   else if ($wuskysnow5>0 && $position6=="forecast3wu.php" ){echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].'k <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}   
-   else if ($wuskysnow6>0 && $position6=="forecast3wu.php" ){echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+   else if ($wuskysnow6>0 && $position6=="forecast3wu.php" ){echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-   else if ($wuskysnow7>0 && $position6=="forecast3wu.php" ){echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+   else if ($wuskysnow7>0 && $position6=="forecast3wu.php" ){echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}   
    
    //weather34 wu alerts rain  
    else if ($wuskyrain1>0 && $position6=="forecast3wularge.php")
-  {echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+  {echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].' </blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskyrain2>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+    else if ($wuskyrain2>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskyrain3>0 && $position6=="forecast3wularge.php") {echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+    else if ($wuskyrain3>0 && $position6=="forecast3wularge.php") {echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskyrain4>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+    else if ($wuskyrain4>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskyrain5>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+    else if ($wuskyrain5>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskyrain7>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+    else if ($wuskyrain7>0 && $position6=="forecast3wularge.php"){echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}   
     //forecast3 wu rain
     else if ($wuskyrain1>0 && $position6=="forecast3wu.php")
-  {echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+  {echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskyrain2>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+    else if ($wuskyrain2>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskyrain3>0 && $position6=="forecast3wu.php" ) {echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+    else if ($wuskyrain3>0 && $position6=="forecast3wu.php" ) {echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskyrain4>0 && $position6=="forecast3wu.php" ){echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+    else if ($wuskyrain4>0 && $position6=="forecast3wu.php" ){echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskyrain5>0 && $position6=="forecast3wu.php" ){echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+    else if ($wuskyrain5>0 && $position6=="forecast3wu.php" ){echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}
-    else if ($wuskyrain7>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+    else if ($wuskyrain7>0 && $position6=="forecast3wu.php"){echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}  
   //weather34 darksky alerts rain,snow  
   else if ($darkskydayIcon=='snow' && $position6=="forecast3ds.php")
-  {echo '<spanelightning>'.$snowalert.'<alertvalue> Expect <blue>Snow Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+  {echo '<spanelightning>'.$snowalert.'<alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['SnowShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';}   
     else if ($darkskydayIcon=='rain' && $position6=="forecast3ds.php")
-  {echo '<spanelightning><alertvalue> Expect <blue>Rain Showers</blue> This Week <alertadvisory>'.$newalertcold.'</alertadvisory>
+  {echo '<spanelightning><alertvalue> '.$lang['ExpectAdvisory'].' <blue>'.$lang['RainShowers'].'</blue> '.$lang['ThisWeekAdvisory'].' <alertadvisory>'.$newalertcold.'</alertadvisory>
    </spanelightning></div></div></div>';} 
  //WEATHER34 solar eclipse events and no alerts 
  else {echo '<spanelightning><alertvalue>'.$eclipse_default.'</spanelightning></div></div></div>';}   

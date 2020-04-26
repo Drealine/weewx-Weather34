@@ -88,8 +88,8 @@ var refreshId;$(document).ready(function(){currentfore()});function currentfore(
 var clockID;
 var yourTimeZoneFrom=<?php echo $UTC?>;
 var d=new Date();
-var weekdays=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var weekdays=["<?php echo $lang['Sunday']?>","<?php echo $lang['Monday']?>","<?php echo $lang['Tuesday']?>","<?php echo $lang['Wednesday']?>","<?php echo $lang['Thursday']?>","<?php echo $lang['Friday']?>","<?php echo $lang['Saturday']?>"];
+var months=["<?php echo $lang['Jan']?>","<?php echo $lang['Feb']?>","<?php echo $lang['Mar']?>","<?php echo $lang['Apr']?>","<?php echo $lang['May']?>","<?php echo $lang['Jun']?>","<?php echo $lang['Jul']?>","<?php echo $lang['Aug']?>","<?php echo $lang['Sep']?>","<?php echo $lang['Oct']?>","<?php echo $lang['Nov']?>","<?php echo $lang['Dec']?>"];
 var tzDifference=yourTimeZoneFrom*60+d.getTimezoneOffset();
 var offset=tzDifference*60*1000;
 function UpdateClock(){

@@ -1,5 +1,5 @@
 <div class="weather34admin">
-  
+<?php include_once('common.php');?>
   <!-- Top Bar -->
   <header class="weather34admin__header">
     <div class="weather34toolbar">
@@ -8,7 +8,7 @@
       </div>
       <div class="weather34toolbar__center">
         <button class="weather34btn weather34btn--primary">
-          <weather34toptitle><?php echo $stationName;?>&nbsp; Home Weather Station</weather34toptitle>
+          <weather34toptitle><?php echo $stationName;?>&nbsp; <?php echo $lang['HomeWeatherStation']?></weather34toptitle>
         </button>
       </div>
       <div class="weather34toolbar__right">
